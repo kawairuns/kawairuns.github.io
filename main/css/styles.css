@@ -1,0 +1,244 @@
+
+html, body{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+div{
+    width: fit-content;
+    margin: auto;
+}
+
+.div2{
+    width: auto;
+    margin: none;
+}
+h1{
+    font-family: 'rodondo';
+}
+
+h2{
+    font-family: 'rainmenu';
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5vw);
+}
+
+h3 {
+    font-family: 'rainmenu';
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5vw);
+    -webkit-text-stroke: 2px white;
+}
+p{
+    font-family: 'rainmenu';
+    font-size: clamp(1rem, 2vw + 1rem, 1.8vw);
+}
+
+a{
+    font-family: 'rainmenu';
+    font-size: clamp(0.8rem, 1vw + 1rem, 1.5vw);
+}
+#p2{
+    font-size:  clamp(1.5rem, 2vw + 1rem, 2vw);
+}
+
+@media (max-width: 800px){
+#p2{
+    position: center;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    }
+}
+
+@media (max-width: 580px){
+#p2{
+    font-family: 'rainmenu';
+    font-size: 20px;
+    position: right;
+    text-align: right;
+    margin-left: 50vw;
+    margin-top: -1vh;
+    width: 40%;
+}      
+}
+
+.outline-text {
+    color: white;
+    -webkit-text-stroke: 2px #308B61;
+}
+
+body{
+    background-image: url(/main/images/wallpaper2.webp);
+    z-index: 1;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    color: rgb(255, 255, 255);
+}
+
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.flex-item {
+    text-align: left;
+    flex: 1;
+    padding: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    background-color: #e7e7e754;
+    border-color: #e7e7e7c8;
+    margin: 10px;
+    transition: all 3s;
+}
+
+
+@media (min-width: 751px) {
+    .flex-item{
+        position: relative;
+        width: 20vw;
+        top: 7vh;
+        left: -20vw;
+        background-color: #e7e7e754;
+        transition: 0.3s;
+    }
+}
+
+@media (max-width: 750px) {
+    .flex-item{
+        position: relative;
+        width: 24vw;
+        top: 5vh;
+        left: -14vw;
+        background-color: #acacacbf;
+        transition: 0.3s;
+    }
+}
+@media (max-width: 600px) {
+    .flex-item{
+        position: relative;
+        width: 40vw;
+        top: 10vh;
+        left: 25vw;
+        background-color: #acacacbf;
+        transition: 0.3s;
+    }
+}
+
+.flex-container2 {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.flex-item2 {
+    text-align: left;
+    flex: 1;
+    padding: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    background-color: #e7e7e754;
+    border-color: #e7e7e7c8;
+    margin: 10px;
+}
+
+    
+@media (min-width: 751px) {
+    .flex-item2{
+        position: relative;
+        width: 20vw;
+        top: -33vh;
+        left: 20vw;
+        background-color: #e7e7e754;
+        transition: 0.3s;
+    }
+}
+
+@media (max-width: 750px) {
+    .flex-item2{
+        position: relative;
+        width: 24vw;
+        top: 5vh;
+        left: 14vw;
+        background-color: #acacacbf;
+        transition: 0.3s;
+    }
+}
+@media (max-width: 600px) {
+    .flex-item2{
+        position: relative;
+        width: 40vw;
+        top: 10vh;
+        left: -25vw;
+        background-color: #acacacbf;
+        transition: 0.3s;
+    }
+
+}
+
+.selector {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.underline {
+  -webkit-text-decoration-line:underline;
+  text-decoration-line:underline
+}
+
+
+.copyright-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 8px 12px;
+
+  font-family: 'rainmenu', sans-serif;
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+
+  z-index: 50;           
+
+}
+@font-face {
+    font-family: 'rainmenu';
+    src: url(/main/fonts/rain-world-menu-font-webfont.otf.woff2);
+}
+
+@font-face {
+    font-family: 'rodondo';
+    src: url(/main/fonts/Rodondo.woff2);
+}
+
+@font-face {
+    font-family: 'rainglyphs';
+    src: url(/main/fonts/Rainworldglyphs-fixed.woff2);
+}
+
+@font-face {
+    font-family: 'rain-world-alphabet';
+    src: url(/main/fonts/rain-world-alphabet.otf.woff2);
+}
+
+@font-face {
+    font-family: 'rainbar';
+    src: url(/main/fonts/rainworldmenufontwebfont.woff2);
+}
+

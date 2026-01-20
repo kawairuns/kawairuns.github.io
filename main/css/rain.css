@@ -1,0 +1,365 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.rain {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.rain.back-row {
+  display: none;
+  z-index: 1;
+  bottom: 0;
+  opacity: 0.5;
+}
+
+body.back-row-btn .rain.back-row {
+  display: flex;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+
+body.splat-toggle .splat {
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.toggle {
+    position: absolute;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    line-height: 51px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.toggle:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Specific button positions */
+.rain-toggle { top: 20px; }
+.menu-toggle { top: 20px; }
+.splat-toggle { top: 80px; }
+.back-row-btn { top: 140px; }
+.sound-toggle { top: 200px; }
+
+
+
+
+/* Collapse all buttons except rain, sound, and menu toggle */
+body.menu-collapsed .toggle:not(.rain-toggle):not(.sound-toggle):not(.menu-toggle) {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+/* Visible while rain is active */
+body.rain-active .rain-toggle .btn-label-container {
+    opacity: 1;
+    width: auto;
+    padding: 5px 10px;
+}
+
+/* Hidden when rain is disabled */
+body:not(.rain-active) .rain-toggle .btn-label-container {
+    opacity: 0;
+    width: 0;
+    padding: 0;
+}
+
+.rain-toggle, .toggle {
+    display: flex;
+    align-items: center;
+    gap: 0; /* no gap, letter circle flush with label container */
+}
+
+body:not(.rain-active) .sound-toggle {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.btn-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;             /* circle size */
+    height: 40px;
+    border-radius: 50%;      /* circle */
+    background-color: rgba(255, 255, 255, 0.721);
+    font-family: "rainglyphs";
+    font-style: normal;
+    text-align: center;
+    font-size: 30px;
+}
+
+.btn-label-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;                    /* remove extra padding */
+    background-color: transparent; /* transparent, no box */
+    border-radius: 0;              /* remove rounded corners */
+    transition: opacity 0.3s, width 0.3s, margin 0.3s;
+    overflow: hidden;
+}
+
+.btn-label {
+    font-family: 'rainbar';
+    justify-content: center;
+    width: auto;
+    font-size: 8px;
+    font-weight: normal;
+    transition: opacity 0.3s, width 0.3s, margin 0.3s;
+}
+
+.toggle, .back-row-btn {
+    width: auto;           /* adjusts to content */
+    height: 40px;          /* fixed height */
+    padding: -1px 10px;
+    display: flex;          /* flex layout for letter + label */
+    align-items: center;    /* vertically center text */
+    justify-content: flex-start; /* letter + label aligned left */
+    gap: 0px;              /* space between letter and label */
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.434);
+    cursor: pointer;
+    z-index: 10;           /* above rain */
+    transition: all 0.3s;
+}
+
+.toggle.active, .back-row-btn.active {
+    background-color: rgba(255, 255, 255, 0.582);
+}
+
+body:not(.rain-active) .toggle:not(.rain-toggle):not(.menu-toggle),
+body:not(.rain-active) .back-row-btn {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none; /* prevent clicks when hidden */
+}
+
+body:not(.rain-active) .menu-toggle {
+  opacity: 0;
+  transform: translateX(-100px);
+  pointer-events: none;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 130px;
+    z-index: 99999; /* higher than rain, toggles, anything */
+}
+
+body.menu-collapsed .toggle:not(.rain-toggle):not(.sound-toggle):not(.menu-toggle) {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* Hide the menu button itself after it is clicked (it should disappear) */
+body.menu-collapsed .menu-toggle {
+  display: none;
+  transform: translateX(-20px);
+  pointer-events: none;
+}
+
+/* Make sure sound stays in a sensible place when menu is collapsed */
+body.menu-collapsed .sound-toggle {
+  top: 80px !important; /* moves sound up into visible stack; tweak if needed */
+}
+
+@media (max-width: 580px){
+  .menu-toggle{
+    position: absolute !important;
+    top: 230px !important;
+    left: 10px !important;
+  }
+  body.menu-collapsed .menu-toggle {
+  transform: translateY(-20px) !important;
+}
+  body.menu-collapsed .toggle:not(.rain-toggle):not(.sound-toggle):not(.menu-toggle) {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+  body:not(.rain-active) .menu-toggle {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+  .toggle {
+    background-color:  rgba(255, 255, 255, 0.2);
+    left: 10px;
+  }
+  .toggle:hover {
+    background-color:  rgba(255, 255, 255, 0.3);
+  }
+  .toggle:active {
+    background-color:  rgba(255, 255, 255, 0.3);
+  }
+  .btn-letter {
+    background-color:  rgba(255, 255, 255, 0.9);
+  }
+  .toggle.active, .back-row-btn.active {
+    background-color:  rgba(255, 255, 255, 0.8);
+  }
+  .toggle, .back-row-btn {
+    background-color:  rgba(255, 255, 255, 0.5);
+  }
+  .btn-label-container {
+    align-items: left;
+    align-content: left;
+    padding: 2px;
+  }
+  .btn-label {
+    font-size: 6px;
+    align-items: left;
+    align-content: left;
+    padding: 2px;
+  }
+  body.rain-active .rain-toggle .btn-label-container {
+    opacity: 1;
+    width: auto;
+    padding: 5px 2px;
+  }
+.rain-toggle { top: 30px; }
+.splat-toggle { top: 80px; }
+.back-row-btn { top: 130px; }
+.sound-toggle { top: 180px; }
+
+}
+body.rain-active .toggle:not(.rain-toggle),
+body.rain-active .back-row-btn {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Rain layers */
+.rain {
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.rain.back-row { 
+    z-index: 1; 
+    bottom: 60px;
+    opacity: 0.5;
+}
+
+/* --- FIX MENU BUTTON CLICKABILITY --- */
+
+
+/* Prevent other buttons from covering it */
+.toggle, .back-row-btn {
+    position: absolute;
+    z-index: 10;
+}
+
+/* Ensure rain layers never block buttons */
+.rain {
+    pointer-events: none !important;
+}
