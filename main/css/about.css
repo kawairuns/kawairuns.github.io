@@ -108,7 +108,7 @@
 }
 }
 
-@media (max-width: 420px) {
+@media (max-device-width: 400px) {
 div{
   width: fit-content;
   margin-right: 2rem;
@@ -119,5 +119,15 @@ body.rain-active .global-side-nav[aria-expanded="true"] ~ .about-card .about-car
 }
 }
 
-
+body::after {
+  content:
+    "innerWidth: " attr(data-w)
+    " DPR: " attr(data-dpr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: black;
+  color: white;
+  z-index: 99999;
+}
 
