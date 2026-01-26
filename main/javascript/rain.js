@@ -144,5 +144,3 @@ makeItRain();
 
 
 
-document.body.dataset.w = window.innerWidth;
-document.body.dataset.dpr = window.devicePixelRatio;
