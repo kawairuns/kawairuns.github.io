@@ -69,26 +69,28 @@ body.splat-toggle .splat {
     position: absolute;
     left: 20px;
     width: 50px;
-    height: 50px;
+    height: auto;
     line-height: 51px;
     box-sizing: border-box;
     text-align: center;
     font-family: sans-serif;
     font-size: 10px;
     font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: rgba(0, 0, 0, 0.5);
+    background-color: var(--page-background);
+    color: rgb(255, 255, 255);
+    border: 2px solid var(--page-border);
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .toggle:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background: var(--page-accent);
+    transform: translateX(4px);
 }
 
 .toggle:active {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--page-background);
 }
 
 
@@ -120,6 +122,7 @@ body:not(.rain-active) .rain-toggle .btn-label-container {
     opacity: 0;
     width: 0;
     padding: 0;
+    margin-right: -3px;
 }
 
 .rain-toggle, .toggle {
@@ -137,10 +140,13 @@ body:not(.rain-active) .sound-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    margin-left: 0px;
     width: 40px;             
     height: 40px;
+    border: 3px solid var(--page-border);
     border-radius: 50%;      
-    background-color: rgba(255, 255, 255, 0.721);
+    background-color: var(--page-background);
     font-family: "rainglyphs";
     font-style: normal;
     text-align: center;
@@ -170,19 +176,26 @@ body:not(.rain-active) .sound-toggle {
 .toggle, .back-row-btn {
     width: auto;          
     height: 40px;          
-    padding: -1px 10px;
+    padding: -2px 10px;
     display: flex;          
     align-items: center;    
     justify-content: flex-start; 
     gap: 0px;              
     border-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.434);
+    border: 2px solid var(--page-border);
+    background-color: var(--page-accent);
     cursor: pointer;
     z-index: 10;           
     transition: all 0.3s;
 }
 
+.toggle.active, .back-row-btn.active {
+  background-color: var(--page-active);
+}
 
+.rain-disclaimer {
+  background-color: var(--page-active);
+}
 
 body:not(.rain-active) .toggle:not(.rain-toggle):not(.menu-toggle),
 body:not(.rain-active) .back-row-btn {
@@ -197,6 +210,9 @@ body:not(.rain-active) .menu-toggle {
   pointer-events: none;
 }
 
+body:not(.rain-active) .btn-label .btn-label-container {
+  border: 0px !important;
+}
 
 body.menu-collapsed .toggle:not(.rain-toggle):not(.sound-toggle):not(.menu-toggle) {
   opacity: 0;
@@ -222,12 +238,21 @@ body.menu-collapsed .sound-toggle {
     top: 230px !important;
     left: 10px !important;
   }
-  .rain-toggle .btn-label-container .btn-label{
-    width: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
+  .rain-toggle .btn-label-container{
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  display: none !important;
   }
+  .rain-toggle .btn-label{
+  width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  display: none !important;
+  }
+  
   body.menu-collapsed .menu-toggle {
   transform: translateY(-20px) !important;
 }
@@ -242,71 +267,69 @@ body.menu-collapsed .sound-toggle {
   pointer-events: none;
 }
   .toggle {
-    background-color:  rgba(255, 255, 255, 0.2);
+    box-sizing: content-box;
     left: 10px;
   }
-  .toggle:hover {
-    background-color:  rgba(255, 255, 255, 0.3);
-  }
-  .toggle:active {
-    background-color:  rgba(255, 255, 255, 0.3);
-  }
-  .btn-letter {
-    background-color:  rgba(255, 255, 255, 0.9);
-  }
+  
   .btn-label-container {
-    align-items: left;
-    align-content: left;
-    padding: 2px;
+    align-items: center;
+    align-content: center;
+    padding: 0px;
+    box-sizing: border-box;
+    max-width: 40px;
   }
   .btn-label {
     font-size: 6px;
-    align-items: left;
-    align-content: left;
-    padding: 2px;
+    align-items: center;
+    box-sizing: border-box;
+    align-content: center;
+    padding: 0px;
   }
   body.rain-active .rain-toggle .btn-label-container {
     opacity: 1;
-    width: auto;
-    padding: 5px 2px;
+    width: 0px;
+    padding: 0px 0px;
+    margin-right: 0px;
   }
 .rain-toggle { top: 30px; }
 .sound-toggle {
   top: 80px;
   flex-direction: column;
   align-items: center;
+  padding: 0;
+  gap: 6px;
   height: auto;
  }
+ 
 .sound-toggle .btn-label-container {
-    background: none;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    min-width: 0;
+    width: 40px;           
+    min-width: 40px;
+    max-width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+  
  }
- .sound-toggle .btn-label {
+    .sound-toggle .btn-label {
     writing-mode: vertical-rl;
     text-orientation: upright;
     padding-bottom: 1em;
-    white-space: nowrap;
+
+    width: auto;
+    max-width: 100%;
+    margin: 0;
 
     font-size: 8px;
     line-height: 1;
-
-    display: inline-block;
+    white-space: nowrap;
   }
+  
  
-.rain-disclaimer .btn-label {
-    width: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
-}
-.rain-disclaimer .btn-label-container{
-   width: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
+.rain-disclaimer {
+  display: none;
 }
 }
 

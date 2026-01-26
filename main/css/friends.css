@@ -112,11 +112,11 @@
 
 @media (max-width: 1379px) {
     .friends-page {
-        row-gap: 4rem;
+        row-gap: 2rem;
     }
     .friend-card:nth-child(odd) {
   grid-column: 1;
-  padding-right: 4rem;
+  padding-right: 1rem;
 }
 .friend-icon img{
     max-width: 120px;
@@ -125,12 +125,19 @@
 .friend-icon {
     width: 120px;
 }
+
+.subheading{
+  margin-right: 2em;
+  max-width: 70vw;
+}
 }
 
-@media (max-width: 600px) {
-    h3 {
+@media (max-width: 1300px) {
+
+
+    .subheading {
   text-align: center;
-  padding-left: 20vw;
+  padding-left: 30vw;
   padding-right: 20vw;
   line-height: 0.8em;
 }
@@ -187,4 +194,64 @@
   .friend-info {
     font-size: 1.05rem;
   }
+.global-side-nav {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+
+    width: 22px;
+    padding: 0.5rem;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+}
+
+.global-nav-toggle {
+    display: block;
+    font-size: calc(1.8rem * var(--nav-scale));
+    padding: auto;
+    text-align: center;
+}
+
+.global-side-nav[aria-expanded="false"] {
+    height: auto;
+}
+
+.global-side-nav[aria-expanded="false"] .global-nav-list {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.global-side-nav .nav-link {
+  font-size: calc(1.8rem * var(--nav-scale));
+  padding: calc(0.8rem * var(--nav-scale))
+           calc(1rem * var(--nav-scale));
+}
+  
+.global-side-nav[aria-expanded="true"] {
+    width: 120px;
+}
+
+.global-nav-list {
+    transition: opacity 0.2s ease;
+    gap: calc(0.5rem * var(--nav-scale));
+}
+body:not(.rain-active) .global-side-nav {
+  position: absolute;
+  top: 80px;
+  transition: all 0.3s;
+}
+}
+
+@media (max-width: 600px) {
+:root {
+    --nav-scale:0.85;
+}
+.global-nav-toggle{
+  padding-left: 2px;
+}
+.friend-card {
+  padding-left: 20px;
+}
 }

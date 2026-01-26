@@ -8,6 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/main/javascript/rain.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        --page-border: #7fdcc1;
+        --page-accent: rgba(127, 220, 193, 0.15);
+        --page-active: rgba(127, 220, 194, 0.557);
+        --page-background: #0f1f1bb8;
+      }
+    </style>
 </head>
 
 <body class="rain-active back-row-active splat-toggle">
@@ -57,7 +65,27 @@
     <div>
         <p id="p2"> "mobile support be damned"</p>
     </div>
+<section class="about-wrapper">
+<nav class="global-side-nav" aria-expanded="true">
 
+  <button
+    class="global-nav-toggle"
+    aria-label="Toggle navigation"
+    aria-expanded="true">
+    ☰
+  </button>
+
+  <ul class="global-nav-list">
+    <li>
+      <span class="nav-link active" aria-current="page">home</span>
+    </li>
+    <li>
+      <a class="nav-link" href="/friends/">friends</a>
+    </li>
+    
+  </ul>
+
+</nav>
 
 <section class="about-card">
 
@@ -82,12 +110,7 @@
   </ul>
 
 </section>
-
-<div class="temporary-link">
-    <h3>
-        <a href="friends/"> imagine there's a really cool button here that takes you to my friends</a>
-    </h3>
-</div>
+</section>
 
 </body>
 <footer class="copyright-bar">
@@ -97,3 +120,27 @@
  GO PLAY IT
 </footer>
 </html>
+
+<script>
+  const nav = document.querySelector('.global-side-nav');
+  const toggle = document.querySelector('.global-nav-toggle');
+
+  function setInitialState() {
+    if (window.innerWidth <= 700) {
+      nav.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      nav.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  setInitialState();
+  window.addEventListener('resize', setInitialState);
+
+  toggle.addEventListener('click', () => {
+    const expanded = nav.getAttribute('aria-expanded') === 'true';
+    nav.setAttribute('aria-expanded', String(!expanded));
+    toggle.setAttribute('aria-expanded', String(!expanded));
+  });
+</script>

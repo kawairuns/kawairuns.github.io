@@ -26,6 +26,9 @@
 
   border-radius: 10%;
   border: 2px solid #7fdcc1;
+  transition:
+  transform 0.35s ease,
+  filter 0.35s ease;
 }
 
 
@@ -64,7 +67,7 @@
 }
 
 
-@media (max-width: 760px) {
+@media (max-width: 1440px) {
   .about-card {
     margin: 8.4rem 1rem;
   }
@@ -85,14 +88,36 @@
   .about-pronouns {
     margin: 0.5rem auto 0;
   }
-}
 
-
-
-.temporary-link {
-    display: flex;
-    width: 30rem;
+  .about-wrapper {
     position: relative;
-    left: 600px;
-    top: -500px;
+  }
+
+  .global-side-nav {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    transform-origin: top left;
+    margin: 0;
+  }
+
+
+ body.rain-active .global-side-nav[aria-expanded="true"] ~ .about-card .about-card-header .about-avatar {
+  transform: translateX(40%) scale(0.95) rotate(3deg);
+  filter: saturate(1.2) brightness(1.1);
 }
+}
+
+@media (max-width: 420px) {
+div{
+  width: fit-content;
+  margin-right: 2rem;
+}
+body.rain-active .global-side-nav[aria-expanded="true"] ~ .about-card .about-card-header .about-avatar {
+  transform: translateX(45%) scale(0.75) rotate(3deg);
+  filter: saturate(1.2) brightness(1.1);
+}
+}
+
+
+

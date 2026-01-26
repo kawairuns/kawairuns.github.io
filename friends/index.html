@@ -8,11 +8,20 @@
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/main/javascript/norain.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        --page-border: #e45649af;
+        --page-accent: rgba(244, 173, 132, 0.15);
+        --page-active: rgba(255, 158, 100, 0.557);
+        --page-background: #ff9d649c;
+      }
+    </style>
 </head>
 
 <body style="background-image: url(/main/images/wallpaper3.webp);"></body>
 
 <body class="rain-active back-row-active splat-toggle">
+
     
 
 <div class="toggles">
@@ -35,15 +44,38 @@
 </div>
 
 <audio id="rain-audio" loop>
-    <source src="/main/audio/NA_08_-_Dark_Sus.wav" type="audio/wav">
+    <source src="/main/audio/NA_08_-_Dark_Sus.mp3" type="audio/mpeg">
 </audio>
 
 <div>
     <h1> friends</h1>
 </div>
-<div>
+<div class="subheading">
     <h3 style='font-family: rodondo; -webkit-text-stroke: 0;'>awesome people i've met over the years, in no particular order</h3>
 </div>
+
+
+<nav class="global-side-nav" aria-expanded="true">
+
+  <button
+    class="global-nav-toggle" style="color: white;"
+    aria-label="Toggle navigation"
+    aria-expanded="true">
+    ☰
+  </button>
+
+  <ul class="global-nav-list">
+    <li>
+      <a class="nav-link" href="../">home</a>
+    </li>
+    <li>
+      <span class="nav-link active" aria-current="page">friends</span>
+    </li>
+    
+  </ul>
+
+</nav>
+
 <div class="friends-page">
 <div class="friend-card"
      style="--bg:#689bd691; --accent:#a5e4ee;">
@@ -192,3 +224,27 @@
  GO PLAY IT
 </footer>
 </html>
+
+<script>
+  const nav = document.querySelector('.global-side-nav');
+  const toggle = document.querySelector('.global-nav-toggle');
+
+  function setInitialState() {
+    if (window.innerWidth <= 700) {
+      nav.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      nav.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  setInitialState();
+  window.addEventListener('resize', setInitialState);
+
+  toggle.addEventListener('click', () => {
+    const expanded = nav.getAttribute('aria-expanded') === 'true';
+    nav.setAttribute('aria-expanded', String(!expanded));
+    toggle.setAttribute('aria-expanded', String(!expanded));
+  });
+</script>
