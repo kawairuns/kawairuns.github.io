@@ -1,146 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link rel="stylesheet" href="/main/css/styles.css">
-    <link rel="stylesheet" href="/main/css/rain.css">
-    <link rel="stylesheet" href="/main/css/about.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/main/javascript/rain.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <style>
-      :root {
-        --page-border: #7fdcc1;
-        --page-accent: rgba(127, 220, 193, 0.15);
-        --page-active: rgba(127, 220, 194, 0.557);
-        --page-background: #0f1f1bb8;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <title>Signal Monitoring Terminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/main/css/style.css">
 </head>
 
-<body class="rain-active back-row-active splat-toggle">
-    
-    <div class="rain front-row"></div>
-    <div class="rain back-row"></div>
+<body>
+    <div id="anomaly-overlay"></div>
+<div class="background-layer"></div>
+    <div class="wallpaper-overlay"></div>
 
-<div class="toggles">
-    <div class="rain-toggle toggle active">
-    <span class="btn-letter">A</span>
-    <span class="btn-label-container">
-        <span class="btn-label">RAIN</span>
-    </span>
-    </div>
+    <aside class="sidebar">
+        <h2>NAVIGATION</h2>
+        <nav>
+            <a href="/">Home</a>
+            <a href="pages/friends/">Friends</a>
+            <a href="pages/projects/">Projects</a>
+            <a href="pages/logs/">Logs</a>
+            <a href="pages/setup/">Setup</a>
+        </nav>
+    </aside>
 
-<div class="menu-toggle toggle">
-    <span class="btn-letter">M</span>
-    <span class="btn-label-container">
-        <span class="btn-label">MENU</span>
-    </span>
-
-</div>
-    <div class="splat-toggle toggle active">
-        <span class="btn-letter">B</span>
-        <span class="btn-label-container">
-          <span class="btn-label">SPLAT</span>
-    </div>
-    <div class="back-row-btn toggle active">
-        <span class="btn-letter">L</span>
-        <span class="btn-label-container">
-          <span class="btn-label">BACK ROW</span>
-    </div>
-    <div class="sound-toggle toggle">
-        <span class="btn-letter">U</span>
-        <span class="btn-label-container">
-          <span class="btn-label">SOUND</span>
-    </div>
-</div>
-<audio id="rain-audio" loop>
-    
-    <source src="/main/audio/rainLight1.wav" type="audio/wav">
+<audio id="ambient-audio" loop>
+    <source src="/main/audio/ambient-wind.mp3" type="audio/mpeg">
 </audio>
 
-    <div>
-        <h1> kawai.run </h1>
-    </div>
-    <div>
-        <p id="p2"> "mobile support be damned"</p>
-    </div>
-<section class="about-wrapper">
-<nav class="global-side-nav" aria-expanded="true">
+<button id="audio-toggle" class="audio-button">
+    SOUND: OFF
+</button>
 
-  <button
-    class="global-nav-toggle"
-    aria-label="Toggle navigation"
-    aria-expanded="true">
-    ☰
-  </button>
 
-  <ul class="global-nav-list">
-    <li>
-      <span class="nav-link active" aria-current="page">home</span>
-    </li>
-    <li>
-      <a class="nav-link" href="/friends/">friends</a>
-    </li>
-    
-  </ul>
 
+
+
+    <main class="main-content">
+
+        <section class="hero">
+            <div class="hero-box">
+                <h1>SIGNAL MONITORING TERMINAL</h1>
+                <p class="subtitle quote">"Atmospheric interference within acceptable range."</p>
+            
+
+  <nav class="hero-nav">
+  <a href="/">Home</a>
+  <a href="/pages/friends/">Friends</a>
+  <a href="/pages/projects/">Projects</a>
+  <a href="/pages/logs/">Logs</a>
+  <a href="/pages/setup/">Setup</a>
 </nav>
+</div>
 
-<section class="about-card">
+<div class="hero-divider" aria-hidden="true"></div>
+        </section>
 
-  <header class="about-card-header">
-    <img
-      class="about-avatar"
-      src="/main/images/pfp.webp"
-      alt="profile picture">
+        <div class="operator-terminal">
 
-    <h2 class="about-title">who am i?</h2>
-  </header>
+            
 
-  <div class="about-pronouns"; style="font-family: rodondo;">
-    he / they
+    <div class="terminal-header">
+        STATION PERSONNEL RECORD
+    </div>
+
+    <div class="terminal-id">
+        OPERATOR_ID: 07-A
+    </div>
+
+    <div class="operator-card">
+
+        <img src="/main/images/pfp.webp" alt="Operator Portrait">
+
+        <div class="operator-info">
+
+            <div class="terminal-section">
+                <p><span>DESIGNATION:</span> adam // kawairun</p>
+                <p><span>ROLE:</span> Signal Array Operator</p>
+                <p><span>CLEARANCE:</span> Level 4</p>
+                <p><span>ORIGIN:</span> UNKNOWN</p>
+            </div>
+
+            <div class="terminal-section">
+                <p><span>SPECIALIZATION:</span></p>
+                <ul>
+                    <li>Signal Analysis</li>
+                    <li>System Maintenance</li>
+                    <li>Remote Monitoring</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="terminal-status online">
+        STATUS: ACTIVE
+    </div>
+
+    <div class="terminal-footer">
+        Last Sync: 03:14
+    </div>
+
+    
+<div class="dossier-addendum">
+
+    <div class="addendum-header">
+        ADDENDUM 01 — SOURCE RECORD
+    </div>
+
+    <p><span>INSPIRATION:</span>
+        <a href="https://mrdrnose.itch.io/votv" target="_blank">
+            Voices of the Void
+        </a>
+    </p>
+<br>
+    <p><span>More to be added</span></p>
+    
+</div>
+</div>
+
+
+
+
+<section class="mobile-ops" aria-label="Mobile ops">
+  <div class="panel ops-panel">
+    <div class="ops-row">
+      <span class="ops-label">OPS PANEL</span>
+      <span class="ops-value">MOBILE MODE</span>
+    </div>
+
+    <div class="ops-actions" role="group" aria-label="Logs">
+      <button class="ops-btn" data-log="personal">log.personal</button>
+      <button class="ops-btn" data-log="hobbies">log.hobbies</button>
+      <button class="ops-btn" data-log="setup">log.setup</button>
+      <button class="ops-btn" data-log="status">log.status</button>
+    </div>
+
+    <div class="ops-viewer" aria-live="polite">
+      <div class="ops-viewer-head">
+        <span id="ops-title" class="ops-title">Awaiting selection</span>
+        <button id="ops-close" class="ops-close" type="button">close</button>
+      </div>
+
+      <pre id="ops-output" class="ops-output"></pre>
+    </div>
+
+    <p class="ops-note">Console disabled on mobile. Logs available here.</p>
   </div>
-
-  <ul class="about-list">
-    <li>jack of all trades</li>
-    <li>i LOVE rain world <br> (as is evident)</li>
-    <li>beholder of many hobbies</li>
-    <li>one comedic genius</li>
-  </ul>
-
 </section>
-</section>
+
+        <section class="dashboard">
+          
+            <div class="panel">
+                <h3>System Status</h3>
+                <p>Dish Array: Online</p>
+                <p>Signal Strength: <span id="signal-percent">82%</span></p>
+                <p>Weather Conditions: Stable</p>
+            </div>
+
+            <div class="panel">
+                <h3>Recent Activity</h3>
+                <p>03:14 – Manual sync completed</p>
+                <p>02:24 – Signal spike detected</p>
+                <p>01:07 – Calibration check</p>
+            </div>
+
+            <div class="panel">
+                <h3>Operator Log</h3>
+                <p id="operator-log">Maintaining remote systems. Awaiting anomalies.</p>
+            </div>
+        </section>
+
+    </main>
+    <header>
+    <div class="terminal-console">
+<div class="console-topbar">
+  <span class="terminal-title">REMOTE SIGNAL CONSOLE </span>
+  <div class="signal-container">
+    <span class="signal-label">SIGNAL</span>
+    <div class="signal-bars">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+        
+    <div class="console-header">
+        
+    </div>
+
+    <div id="console-log" class="console-log">
+        <p>> System Boot Complete</p>
+        <p>> Awaiting Input</p>
+    </div>
+
+    <div class="console-input-line">
+    <span class="prompt">&gt;&gt;</span>
+
+    <div class="input-wrapper">
+        <div id="autocomplete-ghost" class="autocomplete-ghost"></div>
+        <input type="text" id="console-input" autocomplete="off" spellcheck="false">
+    </div>
+</div>
+
+</div>
+</header>
 
 </body>
-<footer class="copyright-bar">
- <a class="underline"; style="font-size: clamp(0.6rem, 1vw, 0.8rem); color: white;" href="https://store.steampowered.com/app/312520/Rain_World" target="_blank">rain world</a>
- is property of
- <a class="underline"; style="font-size: clamp(0.6rem, 1vw, 0.8rem); color: white;" href="https://videocultmedia.com/">videocult</a>,
- GO PLAY IT
-</footer>
+<script src="/main/js/terminal.js"></script>
+<script src="/main/js/ambient.js"></script>
+<script src="/main/js/script.js"></script>
 </html>
-
-<script>
-  const nav = document.querySelector('.global-side-nav');
-  const toggle = document.querySelector('.global-nav-toggle');
-
-  function setInitialState() {
-    if (window.innerWidth <= 700) {
-      nav.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-expanded', 'false');
-    } else {
-      nav.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-  }
-
-  setInitialState();
-  window.addEventListener('resize', setInitialState);
-
-  toggle.addEventListener('click', () => {
-    const expanded = nav.getAttribute('aria-expanded') === 'true';
-    nav.setAttribute('aria-expanded', String(!expanded));
-    toggle.setAttribute('aria-expanded', String(!expanded));
-  });
-</script>

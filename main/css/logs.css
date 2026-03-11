@@ -1,0 +1,170 @@
+
+.logs-page {
+    max-width: 1000px;
+}
+
+
+.logs-hero {
+    margin-bottom: 22px;
+}
+
+
+.logs-intro {
+    margin-bottom: 24px;
+}
+
+.logs-intro p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+
+.logs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.log-entry {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.log-entry::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.10) 0px,
+        rgba(0,0,0,0.10) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    pointer-events: none;
+    opacity: 0.08;
+}
+
+
+.log-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    opacity: 0.6;
+}
+
+.log-id,
+.log-date {
+    white-space: nowrap;
+}
+
+.log-entry h2 {
+    margin-bottom: 14px;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+}
+
+
+.log-text {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.86;
+    margin-bottom: 16px;
+    max-width: 75ch;
+}
+
+
+.log-photo {
+    margin: 18px 0;
+}
+
+.log-photo img {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(120,255,120,0.14);
+    border-radius: 8px;
+}
+
+.log-photo figcaption {
+    margin-top: 10px;
+    font-size: 12px;
+    opacity: 0.58;
+    letter-spacing: 0.08em;
+}
+
+
+.log-gallery {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.log-gallery.two-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.log-gallery figure {
+    margin: 0;
+}
+
+.log-gallery img {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(120,255,120,0.14);
+    border-radius: 8px;
+}
+
+.log-gallery figcaption {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.56;
+}
+
+.logs-closing-note {
+    margin-top: 28px;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+    .logs-page {
+        max-width: none;
+    }
+
+    .logs-hero {
+        margin-bottom: 16px;
+    }
+
+    .logs-intro {
+        margin-bottom: 18px;
+    }
+
+    .logs-list {
+        gap: 18px;
+    }
+
+    .log-entry h2 {
+        font-size: 18px;
+    }
+
+    .log-text {
+        font-size: 13px;
+        max-width: none;
+    }
+
+    .log-topline {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+    }
+
+    .log-gallery.two-up {
+        grid-template-columns: 1fr;
+    }
+}

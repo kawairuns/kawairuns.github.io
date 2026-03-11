@@ -1,0 +1,195 @@
+
+
+.setup-page {
+max-width: 1000px;
+}
+
+
+
+.setup-page .hero {
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.setup-card {
+
+    background: rgba(10,18,10,0.9);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.setup-card::before {
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.12) 0px,
+        rgba(0,0,0,0.12) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+
+    opacity:0.2;
+    pointer-events:none;
+}
+
+
+
+.setup-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+gap: 24px;
+margin-top: 40px;
+margin-bottom: 40px;
+}
+
+
+.setup-card h3 {
+margin-bottom: 16px;
+}
+
+
+.setup-specs p {
+
+display:flex;
+justify-content:space-between;
+
+font-size:13px;
+margin-bottom:8px;
+opacity:0.9;
+}
+
+.setup-specs span {
+
+opacity:0.6;
+letter-spacing:0.06em;
+
+}
+
+
+.workspace img {
+width: 100%;
+margin-top: 16px;
+border-radius: 6px;
+border: 1px solid rgba(120,255,120,0.15);
+}
+
+.setup-note {
+opacity: 0.8;
+margin-bottom: 10px;
+}
+
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.tool-list li {
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.tool-list span {
+    display: inline-block;
+  opacity: 0.6;
+  width: 90px;
+  margin-right: 6px;
+}
+
+.tools ul {
+padding-left: 18px;
+opacity: 0.85;
+}
+
+.tools li {
+margin-bottom: 6px;
+}
+
+
+
+
+.setup-footer {
+margin-top: 30px;
+font-size: 12px;
+opacity: 0.5;
+letter-spacing: 0.08em;
+}
+
+
+
+
+@media (max-width: 900px){
+
+.setup-page{
+max-width: none;
+}
+
+.setup-grid{
+grid-template-columns:1fr;
+}
+
+.tool-list span{
+    display: block;
+}
+
+}
+
+
+.station-snapshot {
+    margin-top: 16px;
+    position: relative;
+}
+
+.station-snapshot img {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(120,255,120,0.16);
+    border-radius: 8px;
+    filter: contrast(1.04) brightness(0.95);
+}
+
+
+.station-snapshot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0px,
+        rgba(0,0,0,0.08) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    opacity: 0.12;
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+.station-snapshot figcaption {
+    margin-top: 10px;
+}
+
+.snapshot-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    opacity: 0.58;
+    margin-bottom: 8px;
+}
+
+.snapshot-note {
+    font-size: 13px;
+    opacity: 0.8;
+    font-style: italic;
+    line-height: 1.5;
+}
