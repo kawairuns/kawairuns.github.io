@@ -23,7 +23,7 @@ body {
   position: fixed;
   inset: -20px;
   background: url("../images/wallpaper6.webp") center/cover no-repeat;
-  background-size: 110%;
+  min-height: 110%;
   z-index: -2;
   transition: transform 0.2s ease-out;
 }
@@ -568,11 +568,11 @@ body.anomaly-mode {
 .mobile-nav { display: none;}
 
 
-@media (max-width: 1921px) {
+@media (max-width: 2000px) {
   
     .terminal-console {
         left: 260px;
-        bottom: 300px;
+        bottom: 255px;
         width: 480px;
         height: 260px;
     }
@@ -581,6 +581,18 @@ body.anomaly-mode {
         width: 320px;
         right: 24px;
         top: 56px;
+    }
+
+    .hero-box {
+      position: relative;
+      top: -50px;
+    }
+
+    .dossier-addendum {
+      position: relative;
+      right: 330px !important;
+      top: 10px !important;
+      width: 300px !important;
     }
 
     .main-content {
@@ -770,7 +782,6 @@ body.anomaly-mode {
     background: rgba(0,0,0,0.25);
     color: #9eff9e;
     padding: 10px 10px;
-    border-radius: 8px;
     font-family: inherit;
     font-size: 13px;
     text-align: center;
@@ -784,7 +795,6 @@ body.anomaly-mode {
     margin-top: 14px;
     border: 1px solid rgba(120,255,120,0.12);
     background: rgba(0,0,0,0.30);
-    border-radius: 8px;
     overflow: hidden;
     display: none;
   }
@@ -834,6 +844,75 @@ body.anomaly-mode {
     font-size: 12px;
   }
 
+  .mobile-changelog {
+  margin-top: 14px;
+  border-top: 1px solid rgba(120,255,120,0.10);
+  padding-top: 12px;
+}
+
+.mobile-changelog details {
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(120,255,120,0.10);
+  padding: 10px 12px;
+}
+
+.mobile-changelog summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 13px;
+  opacity: 1;
+  color: #9eff9e;
+  user-select: none;
+}
+
+.mobile-changelog summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-changelog summary::before {
+  content: "> ";
+  opacity: 0.45;
+}
+
+.mobile-changelog details[open] summary {
+  margin-bottom: 10px;
+}
+
+.mobile-changelog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-changelog-list li {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 1;
+}
+
+.mobile-changelog-list span {
+  display: inline-block;
+  width: 42px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.mobile-changelog-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #9eff9e;
+  text-decoration: none;
+  opacity: 0.72;
+}
+
+.mobile-changelog-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
 
   .sidebar {
     display: none !important;
@@ -920,80 +999,69 @@ body.anomaly-mode {
   }
 }
 
-
-
-.dossier-addendum {
-
-    position: fixed;
-    right: 0px;
-    top: 620px;
-
-    width: 380px;
-
-    background: rgba(6, 10, 6, 0.85);
-    border: 1px solid rgba(120,255,120,0.16);
-
-    padding: 16px 20px;
-
-    font-size: 12px;
-    line-height: 1.5;
-
-    opacity: 0.85;
-    z-index: 3;
+.credits-panel {
+  width: auto;
 }
 
-
-.addendum-header {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    margin-bottom: 12px;
-    opacity: 0.55;
-}
-
-
-.dossier-addendum p {
-    margin-bottom: 6px;
-}
-
-
-.dossier-addendum span {
-    display: inline-block;
+.credits-panel span {
+  display: inline-block;
     width: auto;
-    opacity: 0.55;
+    opacity: 0.85;
     letter-spacing: 0.08em;
 }
 
-
-.dossier-addendum a {
-    color: #9eff9e;
+.credits-panel a {
+  color: #9eff9e;
     text-decoration: none;
     opacity: 0.9;
 }
 
-
-.dossier-addendum a:hover {
-    text-decoration: underline;
+.credits-panel a:hover {
+  text-decoration: underline;
 }
 
-.dossier-addendum::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.2) 0px,
-        rgba(0,0,0,0.2) 1px,
-        transparent 2px,
-        transparent 4px
-    );
-
-    opacity: 0.08;
-    pointer-events: none;
+.sidebar-changelog {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(120,255,120,0.15);
+  font-size: 12px;
+  opacity: 0.9;
+  
 }
+
+.sidebar-changelog h3 {
+ font-size: 18px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.sidebar-changelog ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-changelog li {
+  margin-bottom: 6px;
+}
+
+.sidebar-changelog span {
+  display: inline-block;
+  width: 44px;
+  opacity: 0.9;
+}
+
+.sidebar-changelog li::before {
+  content: ">";
+  margin-right: 6px;
+  opacity: 0.45;
+}
+
+
+
 
 @media (max-width: 1250px) {
-  .dossier-addendum {
+  .sidebar-changelog {
     display: none;
   }
 }
