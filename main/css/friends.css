@@ -88,6 +88,18 @@
   margin-top: 2px;
 }
 
+.friend-handle a {
+  color: #9eff9e;
+  text-decoration: none;
+  padding-bottom: 1px;
+  opacity: 0.9;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.friend-handle a:hover {
+  color: #ffffff;
+  border-color: rgba(120,255,120,0.6);
+}
 
 
 .friend-status {
