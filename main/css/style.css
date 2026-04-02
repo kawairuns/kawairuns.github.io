@@ -12,13 +12,10 @@ body {
   display: flex;
   min-height: 100vh;
   overflow-x: hidden;
-  transform: rotate(180deg);
 
 
   animation: screenFlicker 12s infinite;
 }
-
-
 
 
 
