@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setup: `Current setup:
 - Arch Linux
-- Hyprland
+- Hyprland // sway
 - Firefox
 - VSCode`,
 
