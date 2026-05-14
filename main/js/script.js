@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const mobileLogs = {
     personal: `Operator profile:
-• Name: adam
+• Name: akita
 • Clearance: Level 4
 • Assignment: Remote Monitoring
 • Notes: Extended isolation.`,
